@@ -8,9 +8,9 @@ use Symfony\Component\DependencyInjection\Attribute\Autowire;
 
 class SMSHelper
 {
-    public function __construct(#[Autowire(param: 'env(AMAZON_SNS_ACCESS_ID)')]     private readonly string $sns_access_id,
-                                #[Autowire(param: 'env(AMAZON_SNS_SECRET)')]        private readonly string $sns_secret,
-                                #[Autowire(param: 'env(AMAZON_SNS_DEFAULT_REGION')] private readonly string $sns_region
+    public function __construct(#[Autowire(param: 'env(AMAZON_SNS_ACCESS_ID)')]      private readonly string $sns_access_id,
+                                #[Autowire(param: 'env(AMAZON_SNS_SECRET)')]         private readonly string $sns_secret,
+                                #[Autowire(param: 'env(AMAZON_SNS_DEFAULT_REGION)')] private readonly string $sns_region
     )
     {
     }

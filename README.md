@@ -116,11 +116,23 @@ When you are ready to send a message, you can use the `AmazonSMSHelper` service 
 
 ```php
 <?php
+use Aws\Result
 use OncologySupport\AmazonSMSHelper\Service\AmazonSMSHelper;
 
-$smsHelper = new AmazonSMSHelper();
+class ExampleSmsService
+{
+    public function __construct(private readonly $smsHelper)
+    {
+    }
 
-$result = $smsHelper('+12125551234', 'This is a test message.');
+    public function sendSMS(string $message, string $phoneNumber): Result
+    {
+        // cellPhoneNumber must be in the format +1XXXXXXXXXX (for US numbers)
+        $cellPhoneNumber = '+1' . preg_replace("/[^0-9]+/", "", $phoneNumber);
+        
+        return $this->smsHelper($message, $cellPhoneNumber);
+    }
+}
 ```
 
 Enjoy!
