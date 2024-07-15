@@ -47,10 +47,10 @@ return [
 
 ### Step 3: Configuration
 
-To use this bundle, 
+To use this bundle, you will need an AWS account with SNS service enabled.
 
-You need to configure the following parameters in your `.env` file. You should have an AWS account with SNS service enabled. 
-Enabling SNS requires that you request an Origination number and then go through the process of removing that number from the sandbox.
+Enabling SNS requires that you request an Origination number. 
+To send messages to any cell phone, you will then go through the process of removing that number from the sandbox.
 
 Once SNS is enabled, you will need IAM configured to get the `access_key_id` and `secret_access_key` for the AWS account.
 Here is how I did this: from the IAM console, I created a new user with programmatic access. I then attached a new 
@@ -78,8 +78,10 @@ policy to the user with the following json policy:
 }
 ```
 This policy allows the SNS user you created to send SMS messages. 
-You will need to replace `xxx.xxx.xxx.xxx` and `yyy.yyy.yyy.yyy` with the IP addresses of the servers that will be sending the SMS messages.
-You can also omit the "Condition" block if you want to allow the user to send SMS messages from any IP address, but this is not recommended for security reasons.
+You will need to replace `xxx.xxx.xxx.xxx` and `yyy.yyy.yyy.yyy` with the IP addresses of the servers 
+that will be sending the SMS messages.
+You can also omit the "Condition" block if you want to allow the user to send SMS messages from any IP address, 
+but this is not recommended for security reasons.
 You can also be more permissive with the "Action" section if you want to allow the user to do more than just send SMS messages.
 Here is an example that is more permissive:
 
