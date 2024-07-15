@@ -20,7 +20,8 @@
         "symfony/dependency-injection": "^6.0 || ^7.0",
         "symfony/config": "^6.0 || ^7.0",
         "symfony/yaml": "^6.0 || ^7.0",
-        "symfony/flex": "^2.3"
+        "symfony/flex": "^2.3",
+        "aws/aws-sdk-php": "^3.316"
     },
     "require-dev": {
         "symfony/framework-bundle": "^6.0 || ^7.0",
